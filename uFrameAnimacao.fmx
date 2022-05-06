@@ -1,0 +1,59 @@
+object frameAnimacao: TframeAnimacao
+  Size.Width = 898.000000000000000000
+  Size.Height = 429.000000000000000000
+  Size.PlatformDefault = False
+  TabOrder = 0
+  object ArcoAnimacao: TArc
+    Align = Center
+    Size.Width = 150.000000000000000000
+    Size.Height = 150.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = Gradient
+    Stroke.Gradient.Points = <
+      item
+        Color = xFFCA2626
+        Offset = 0.338509321212768600
+      end
+      item
+        Color = claWhite
+        Offset = 1.000000000000000000
+      end>
+    Stroke.Gradient.StartPosition.X = 0.500000000000000000
+    Stroke.Gradient.StartPosition.Y = 1.000000000000000000
+    Stroke.Gradient.StopPosition.X = 0.499999970197677600
+    Stroke.Gradient.StopPosition.Y = 0.000000000000000000
+    Stroke.Thickness = 10.000000000000000000
+    EndAngle = -90.000000000000000000
+    object FloatAnimacao: TFloatAnimation
+      Duration = 1.000000000000000000
+      Interpolation = Sinusoidal
+      Loop = True
+      PropertyName = 'RotationAngle'
+      StartValue = 0.000000000000000000
+      StopValue = 360.000000000000000000
+    end
+  end
+  object CircleAnimacao: TCircle
+    Align = Center
+    Fill.Color = claNull
+    Size.Width = 135.000000000000000000
+    Size.Height = 135.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Color = claNull
+    object lblAnimacao: TLabel
+      Align = Center
+      AutoSize = True
+      StyledSettings = []
+      Size.Width = 93.000000000000000000
+      Size.Height = 24.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Family = 'Segoe UI Semibold'
+      TextSettings.Font.Size = 18.000000000000000000
+      TextSettings.Font.Style = [fsBold]
+      TextSettings.FontColor = claDarkred
+      TextSettings.HorzAlign = Center
+      TextSettings.WordWrap = False
+      Text = 'Aguarde...'
+    end
+  end
+end

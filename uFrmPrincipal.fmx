@@ -1,0 +1,190 @@
+object frmPrincipal: TfrmPrincipal
+  Left = 0
+  Top = 0
+  Caption = 'Busca dados com anima'#231#227'o em thread '
+  ClientHeight = 751
+  ClientWidth = 1209
+  Position = MainFormCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object StringGridLogradouro: TStringGrid
+    Align = Client
+    Size.Width = 1209.000000000000000000
+    Size.Height = 661.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 13
+    RowCount = 0
+    RowHeight = 21.000000000000000000
+  end
+  object pnlBotoes: TPanel
+    Align = Bottom
+    Position.Y = 661.000000000000000000
+    Size.Width = 1209.000000000000000000
+    Size.Height = 90.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object btnConsultar: TButton
+      Anchors = [akLeft]
+      Position.X = 26.000000000000000000
+      Position.Y = 21.000000000000000000
+      Size.Width = 150.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Consultar'
+      OnClick = btnConsultarClick
+    end
+  end
+  object PanelAnimacao: TPanel
+    Align = Client
+    Size.Width = 1209.000000000000000000
+    Size.Height = 661.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 22
+    inline frmAnimacao: TframeAnimacao
+      Align = Client
+      Size.Width = 1209.000000000000000000
+      Size.Height = 661.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+    end
+  end
+  object BindingsListLogradouro: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 372
+    Top = 109
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      DataSource = BindSourceDBLogradouro
+      GridControl = StringGridLogradouro
+      Columns = <
+        item
+          MemberName = 'ID_LOGRADOURO'
+        end
+        item
+          MemberName = 'CEP'
+          Width = 80
+        end
+        item
+          MemberName = 'TIPO'
+          Width = 80
+        end
+        item
+          MemberName = 'DESCRICAO'
+          Width = 200
+        end
+        item
+          MemberName = 'ID_CIDADE'
+          Visible = False
+        end
+        item
+          MemberName = 'UF'
+        end
+        item
+          MemberName = 'COMPLEMENTO'
+          Width = 100
+        end
+        item
+          MemberName = 'DESCRICAO_SEM_NUMERO'
+          Width = 200
+        end
+        item
+          MemberName = 'DESCRICAO_CIDADE'
+          Width = 200
+        end
+        item
+          MemberName = 'CODIGO_CIDADE_IBGE'
+          Width = 100
+        end
+        item
+          MemberName = 'DESCRICAO_BAIRRO'
+          Width = 200
+        end>
+    end
+  end
+  object BindSourceDBLogradouro: TBindSourceDB
+    DataSet = FDQryLogradouro
+    ScopeMappings = <>
+    Left = 648
+    Top = 109
+  end
+  object FDConexao: TFDConnection
+    Params.Strings = (
+      'Database=D:\Projetos\DELPHI\Thread\Dados\DADOS.FDB'
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'Server=localhost'
+      'DriverID=FB')
+    LoginPrompt = False
+    Left = 488
+    Top = 677
+  end
+  object FDQryLogradouro: TFDQuery
+    Connection = FDConexao
+    SQL.Strings = (
+      'SELECT FIRST 1 * FROM LOGRADOURO WHERE 1 = 2')
+    Left = 592
+    Top = 677
+    object FDQryLogradouroCEP: TStringField
+      FieldName = 'CEP'
+      Origin = 'CEP'
+      Required = True
+      Size = 11
+    end
+    object FDQryLogradouroID_LOGRADOURO: TIntegerField
+      FieldName = 'ID_LOGRADOURO'
+      Origin = 'ID_LOGRADOURO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object FDQryLogradouroTIPO: TStringField
+      FieldName = 'TIPO'
+      Origin = 'TIPO'
+      Size = 50
+    end
+    object FDQryLogradouroDESCRICAO: TStringField
+      FieldName = 'DESCRICAO'
+      Origin = 'DESCRICAO'
+      Required = True
+      Size = 100
+    end
+    object FDQryLogradouroID_CIDADE: TIntegerField
+      FieldName = 'ID_CIDADE'
+      Origin = 'ID_CIDADE'
+      Required = True
+    end
+    object FDQryLogradouroUF: TStringField
+      FieldName = 'UF'
+      Origin = 'UF'
+      Required = True
+      Size = 2
+    end
+    object FDQryLogradouroCOMPLEMENTO: TStringField
+      FieldName = 'COMPLEMENTO'
+      Origin = 'COMPLEMENTO'
+      Size = 100
+    end
+    object FDQryLogradouroDESCRICAO_SEM_NUMERO: TStringField
+      FieldName = 'DESCRICAO_SEM_NUMERO'
+      Origin = 'DESCRICAO_SEM_NUMERO'
+      Size = 100
+    end
+    object FDQryLogradouroDESCRICAO_CIDADE: TStringField
+      FieldName = 'DESCRICAO_CIDADE'
+      Origin = 'DESCRICAO_CIDADE'
+      Size = 100
+    end
+    object FDQryLogradouroCODIGO_CIDADE_IBGE: TIntegerField
+      FieldName = 'CODIGO_CIDADE_IBGE'
+      Origin = 'CODIGO_CIDADE_IBGE'
+    end
+    object FDQryLogradouroDESCRICAO_BAIRRO: TStringField
+      FieldName = 'DESCRICAO_BAIRRO'
+      Origin = 'DESCRICAO_BAIRRO'
+      Size = 100
+    end
+  end
+end
